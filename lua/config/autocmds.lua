@@ -7,13 +7,17 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
-vim.opt.updatetime = 500
+vim.opt.updatetime = 1000
 
 local group = vim.api.nvim_create_augroup("LspAutoHover", { clear = true })
 
 vim.api.nvim_create_autocmd("CursorHold", {
   group = group,
   callback = function()
+    if vim.fn.mode() ~= "n" then
+      return
+    end
+
     local clients = vim.lsp.get_clients({ bufnr = 0 })
     if #clients == 0 then
       return
@@ -21,6 +25,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
 
     vim.lsp.buf.hover({
       border = "rounded",
+      focus = false,
       focusable = false,
     })
   end,

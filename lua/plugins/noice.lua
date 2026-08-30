@@ -1,37 +1,41 @@
 return {
-  {
-    "folke/noice.nvim",
-    opts = {
-      lsp = {
-        hover = {
-          enabled = true,
-          view = "lsp_hover_top_right",
+  "folke/noice.nvim",
+  opts = {
+    lsp = {
+      hover = {
+        enabled = true,
+        view = "lsp_hover_top_right",
+        opts = {
+          focus = false,
         },
       },
+    },
 
-      views = {
-        lsp_hover_top_right = {
-          backend = "popup",
-          relative = "editor",
+    views = {
+      lsp_hover_top_right = {
+        backend = "popup",
+        relative = "editor",
 
-          position = {
-            row = 10,
-            col = "100%",
-          },
+        position = {
+          row = 10,
+          col = "100%",
+        },
 
-          size = {
-            width = 40,
-            height = "auto",
-            max_height = 7,
-          },
+        size = {
+          width = 40,
+          height = "auto",
+          max_height = 7,
+        },
 
-          border = {
-            style = "rounded",
-          },
+        border = {
+          style = "rounded",
+        },
 
-          win_options = {
-            wrap = true,
-          },
+        focusable = false,
+        enter = false,
+
+        win_options = {
+          wrap = true,
         },
       },
     },
