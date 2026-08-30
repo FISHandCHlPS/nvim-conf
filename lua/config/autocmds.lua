@@ -25,3 +25,13 @@ vim.api.nvim_create_autocmd("CursorHold", {
     })
   end,
 })
+
+-- インサートを抜けたら自動保存
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.modified and vim.bo.buftype == "" and vim.bo.modifiable then
+      vim.cmd("silent! write")
+    end
+  end,
+})

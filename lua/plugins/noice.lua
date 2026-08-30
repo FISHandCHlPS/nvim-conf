@@ -15,14 +15,14 @@ return {
           relative = "editor",
 
           position = {
-            row = 1,
+            row = 10,
             col = "100%",
           },
 
           size = {
-            width = 50,
+            width = 40,
             height = "auto",
-            max_height = 20,
+            max_height = 7,
           },
 
           border = {
