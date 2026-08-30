@@ -17,6 +17,12 @@ return {
     },
 
     opts = {
+      keymaps = {
+        toggle_diff = "Tab",
+        next_hunk = "]",
+        prev_hunk = "[",
+      },
+
       diff = {
         layout = "inline",
       },
