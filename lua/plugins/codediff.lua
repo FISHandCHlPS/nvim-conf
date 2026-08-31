@@ -18,9 +18,11 @@ return {
 
     opts = {
       keymaps = {
-        toggle_diff = "Tab",
-        next_hunk = "]",
-        prev_hunk = "[",
+        view = {
+          toggle_explorer = "<Tab>",
+          next_hunk = "]",
+          prev_hunk = "[",
+        },
       },
 
       diff = {
