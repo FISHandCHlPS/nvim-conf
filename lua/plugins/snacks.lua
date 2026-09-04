@@ -1,6 +1,11 @@
 return {
   "folke/snacks.nvim",
   opts = {
+    keys = {
+      { "<leader>gd", false },
+      { "<leader>gD", false },
+    },
+
     picker = {
       -- tabでウィンドウを切り替え
       win = {
