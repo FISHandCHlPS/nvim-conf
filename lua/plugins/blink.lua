@@ -17,6 +17,9 @@ return {
           "fallback",
         },
       },
+      signature = {
+        enabled = true,
+      },
     },
   },
 }

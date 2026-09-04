@@ -19,6 +19,15 @@ vim.keymap.set("n", "K", "6k", { desc = "Up 6 lines" })
 -- ;でコマンド
 vim.keymap.set("n", ";", ":", { desc = "Enter command-line" })
 
+-- lsp参照へジャンプ
+vim.keymap.set("n", "gn", function()
+  Snacks.words.jump(vim.v.count1, true)
+end, { desc = "Next Reference" })
+
+vim.keymap.set("n", "gp", function()
+  Snacks.words.jump(-vim.v.count1, true)
+end, { desc = "Previous Reference" })
+
 -- ターミナルをleader+@で出す
 vim.keymap.set({ "n", "t" }, "<leader>@", function()
   Snacks.terminal.focus(nil, { cwd = LazyVim.root() })
@@ -31,6 +40,9 @@ vim.keymap.set("n", "<S-Tab>", "<<", { desc = "Unindent line" })
 -- Visual mode: selection
 vim.keymap.set("x", "<Tab>", ">gv", { desc = "Indent selection" })
 vim.keymap.set("x", "<S-Tab>", "<gv", { desc = "Unindent selection" })
+
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true, desc = "scroll up page" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true, desc = "scroll down page" })
 
 -- Delete / change without overwriting registers
 vim.keymap.set({ "n", "x" }, "d", '"_d')

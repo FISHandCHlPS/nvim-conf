@@ -7,9 +7,12 @@ vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 15
 
 -- 行番号を非表示
-vim.opt.number = false
-vim.opt.relativenumber = false
+vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.foldcolumn = "0"
+
+-- 折り返して表示
+vim.opt.wrap = true
 
 -- クリップボードを日本語入力対応
 local clip = "/mnt/c/Windows/System32/clip.exe"

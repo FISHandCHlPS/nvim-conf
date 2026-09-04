@@ -9,34 +9,38 @@
 
 vim.opt.updatetime = 1000
 
-local group = vim.api.nvim_create_augroup("LspAutoHover", { clear = true })
-
 vim.api.nvim_create_autocmd("CursorHold", {
-  group = group,
-  callback = function()
-    if vim.fn.mode() ~= "n" then
-      return
-    end
-
-    local clients = vim.lsp.get_clients({ bufnr = 0 })
-    if #clients == 0 then
-      return
-    end
-
-    vim.lsp.buf.hover({
-      border = "rounded",
-      focus = false,
-      focusable = false,
+  callback = function(args)
+    local clients = vim.lsp.get_clients({
+      bufnr = args.buf,
+      method = "textDocument/hover",
     })
+
+    if #clients > 0 then
+      vim.lsp.buf.hover()
+    end
   end,
 })
 
--- インサートを抜けたら自動保存
-vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.modified and vim.bo.buftype == "" and vim.bo.modifiable then
-      vim.cmd("silent! write")
-    end
-  end,
+local function set_lsp_reference_highlights()
+  local reference = {
+    bg = "#d3d5b8",
+    underline = true,
+  }
+
+  vim.api.nvim_set_hl(0, "LspReferenceText", reference)
+  vim.api.nvim_set_hl(0, "LspReferenceRead", reference)
+
+  vim.api.nvim_set_hl(0, "LspReferenceWrite", {
+    bg = "#f7d9b9",
+    fg = "#c14a4a",
+    bold = true,
+    underline = true,
+  })
+end
+
+set_lsp_reference_highlights()
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = set_lsp_reference_highlights,
 })
