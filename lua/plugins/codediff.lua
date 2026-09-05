@@ -20,17 +20,17 @@ return {
       keymaps = {
         view = {
           toggle_explorer = "<Tab>",
-          next_hunk = "]",
-          prev_hunk = "[",
+          next_hunk = ">",
+          prev_hunk = "<",
         },
       },
 
       diff = {
-        layout = "inline",
+        layout = "side-by-side",
       },
 
       explorer = {
-        position = "bottom",
+        position = "left",
         height = 10,
         view_mode = "tree",
         flatten_dirs = true,
