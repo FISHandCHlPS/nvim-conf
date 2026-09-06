@@ -31,7 +31,7 @@ return {
 
       explorer = {
         position = "left",
-        height = 10,
+        -- height = 10,
         view_mode = "tree",
         flatten_dirs = true,
         auto_refresh = true,
