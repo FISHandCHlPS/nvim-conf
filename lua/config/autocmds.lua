@@ -9,18 +9,18 @@
 
 vim.opt.updatetime = 1000
 
-vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function(args)
-    local clients = vim.lsp.get_clients({
-      bufnr = args.buf,
-      method = "textDocument/hover",
-    })
-
-    if #clients > 0 then
-      vim.lsp.buf.hover()
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("CursorHold", {
+--   callback = function(args)
+--     local clients = vim.lsp.get_clients({
+--       bufnr = args.buf,
+--       method = "textDocument/hover",
+--     })
+--
+--     if #clients > 0 then
+--       vim.lsp.buf.hover()
+--     end
+--   end,
+-- })
 
 local function set_lsp_reference_highlights()
   local reference = {
