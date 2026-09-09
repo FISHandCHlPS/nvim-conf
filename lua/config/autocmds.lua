@@ -10,6 +10,8 @@
 vim.opt.updatetime = 1000
 
 local function set_highlights()
+
+local function set_lsp_reference_highlights()
   local reference = {
     bg = "#d3d5b8",
     underline = true,
