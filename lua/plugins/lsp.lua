@@ -6,6 +6,7 @@ return {
         ["*"] = {
           keys = {
             { "K", false },
+            { "gh", vim.lsp.buf.hover, desc = "Hover" },
           },
         },
         pyright = {
