@@ -12,9 +12,20 @@ return {
         pyright = {
           enabled = false,
         },
-        pyrefly = {
+        ty = {
           mason = false,
+          settings = {
+            ty = {
+              inlayHints = {
+                variableTypes = false,
+                callArgumentNames = true,
+              },
+            },
+          },
         },
+        -- pyrefly = {
+        --   mason = false,
+        -- },
       },
     },
   },

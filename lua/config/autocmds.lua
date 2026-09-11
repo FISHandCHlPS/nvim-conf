@@ -21,6 +21,20 @@ vim.opt.updatetime = 1000
 --     end
 --   end,
 -- })
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "LspInlayHint", {
+      fg = "#928374",
+      bg = "NONE",
+      italic = true,
+    })
+  end,
+})
+
+vim.api.nvim_set_hl(0, "LspInlayHint", {
+  fg = "#a89984",
+  italic = true,
+})
 
 local function set_lsp_reference_highlights()
   local reference = {
