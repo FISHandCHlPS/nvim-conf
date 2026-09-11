@@ -9,52 +9,26 @@
 
 vim.opt.updatetime = 1000
 
--- vim.api.nvim_create_autocmd("CursorHold", {
---   callback = function(args)
---     local clients = vim.lsp.get_clients({
---       bufnr = args.buf,
---       method = "textDocument/hover",
---     })
---
---     if #clients > 0 then
---       vim.lsp.buf.hover()
---     end
---   end,
--- })
-vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = function()
-    vim.api.nvim_set_hl(0, "LspInlayHint", {
-      fg = "#928374",
-      bg = "NONE",
-      italic = true,
-    })
-  end,
-})
-
-vim.api.nvim_set_hl(0, "LspInlayHint", {
-  fg = "#a89984",
-  italic = true,
-})
-
-local function set_lsp_reference_highlights()
+local function set_highlights()
   local reference = {
     bg = "#d3d5b8",
     underline = true,
   }
 
-  vim.api.nvim_set_hl(0, "LspReferenceText", reference)
-  vim.api.nvim_set_hl(0, "LspReferenceRead", reference)
-
-  vim.api.nvim_set_hl(0, "LspReferenceWrite", {
-    bg = "#f7d9b9",
-    fg = "#c14a4a",
-    bold = true,
-    underline = true,
-  })
+  for group, opts in pairs({
+    LspInlayHint = { fg = "#a89984", italic = true },
+    LspReferenceText = reference,
+    LspReferenceRead = reference,
+    LspReferenceWrite = {
+      bg = "#f7d9b9",
+      fg = "#c14a4a",
+      bold = true,
+      underline = true,
+    },
+  }) do
+    vim.api.nvim_set_hl(0, group, opts)
+  end
 end
 
-set_lsp_reference_highlights()
-
-vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = set_lsp_reference_highlights,
-})
+set_highlights()
+vim.api.nvim_create_autocmd("ColorScheme", { callback = set_highlights })
