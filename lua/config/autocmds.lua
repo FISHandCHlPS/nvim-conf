@@ -9,6 +9,15 @@
 
 vim.opt.updatetime = 1000
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    if vim.bo.buftype == "nofile" then
+      vim.opt_local.spell = false
+    end
+  end,
+})
+
 local function set_highlights()
   local reference = {
     bg = "#d3d5b8",
