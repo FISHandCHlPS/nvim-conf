@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 -- Insert mode: jj -> Esc
-vim.keymap.set("i", "jj", "<Esc>", {
+vim.keymap.set("i", "jk", "<Esc>", {
   noremap = true,
   silent = true,
   desc = "Exit insert mode",
