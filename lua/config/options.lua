@@ -15,32 +15,16 @@ vim.opt.foldcolumn = "0"
 vim.opt.wrap = true
 
 -- クリップボードを日本語入力対応
-local clip = "/mnt/c/Windows/System32/clip.exe"
-local powershell = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
-
 vim.g.clipboard = {
-  name = "WSLClipboard",
+  name = "OSC 52",
   copy = {
-    ["+"] = clip,
-    ["*"] = clip,
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
   },
   paste = {
-    ["+"] = {
-      powershell,
-      "-NoLogo",
-      "-NoProfile",
-      "-Command",
-      "[Console]::Out.Write((Get-Clipboard -Raw).ToString().Replace([char]13, ''))",
-    },
-    ["*"] = {
-      powershell,
-      "-NoLogo",
-      "-NoProfile",
-      "-Command",
-      "[Console]::Out.Write((Get-Clipboard -Raw).ToString().Replace([char]13, ''))",
-    },
+    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
   },
-  cache_enabled = 0,
 }
 
 vim.opt.clipboard = "unnamedplus"
