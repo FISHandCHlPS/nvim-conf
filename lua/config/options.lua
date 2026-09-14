@@ -15,32 +15,32 @@ vim.opt.foldcolumn = "0"
 vim.opt.wrap = true
 
 -- クリップボードを日本語入力対応
--- local clip = "/mnt/c/Windows/System32/clip.exe"
--- local powershell = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
---
--- vim.g.clipboard = {
---   name = "WSLClipboard",
---   copy = {
---     ["+"] = clip,
---     ["*"] = clip,
---   },
---   paste = {
---     ["+"] = {
---       powershell,
---       "-NoLogo",
---       "-NoProfile",
---       "-Command",
---       "[Console]::Out.Write((Get-Clipboard -Raw).ToString().Replace([char]13, ''))",
---     },
---     ["*"] = {
---       powershell,
---       "-NoLogo",
---       "-NoProfile",
---       "-Command",
---       "[Console]::Out.Write((Get-Clipboard -Raw).ToString().Replace([char]13, ''))",
---     },
---   },
---   cache_enabled = 0,
--- }
+local clip = "/mnt/c/Windows/System32/clip.exe"
+local powershell = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
+
+vim.g.clipboard = {
+  name = "WSLClipboard",
+  copy = {
+    ["+"] = clip,
+    ["*"] = clip,
+  },
+  paste = {
+    ["+"] = {
+      powershell,
+      "-NoLogo",
+      "-NoProfile",
+      "-Command",
+      "[Console]::Out.Write((Get-Clipboard -Raw).ToString().Replace([char]13, ''))",
+    },
+    ["*"] = {
+      powershell,
+      "-NoLogo",
+      "-NoProfile",
+      "-Command",
+      "[Console]::Out.Write((Get-Clipboard -Raw).ToString().Replace([char]13, ''))",
+    },
+  },
+  cache_enabled = 0,
+}
 
 vim.opt.clipboard = "unnamedplus"
