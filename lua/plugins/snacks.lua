@@ -1,6 +1,8 @@
 return {
   "folke/snacks.nvim",
   opts = {
+    indent = { enabled = false },
+
     keys = {
       { "<leader>gd", false },
       { "<leader>gD", false },
@@ -11,17 +13,17 @@ return {
       win = {
         input = {
           keys = {
-            ["<Tab>"] = { "cycle_win", mode = { "i", "n" } },
+            ["<C-l>"] = { "cycle_win", mode = { "i", "n" } },
           },
         },
         list = {
           keys = {
-            ["<Tab>"] = "cycle_win",
+            ["<C-l"] = "cycle_win",
           },
         },
         preview = {
           keys = {
-            ["<Tab>"] = "cycle_win",
+            ["<C-h>"] = "cycle_win",
           },
         },
       },
