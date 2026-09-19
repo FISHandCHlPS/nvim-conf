@@ -9,6 +9,14 @@
 
 vim.opt.updatetime = 1000
 
+-- バッファ自動解放
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function(args)
+    vim.bo[args.buf].bufhidden = "unload"
+  end,
+})
+
+-- マークダウンの spell チェックを無効化
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
@@ -18,6 +26,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- ハイライト色の設定
 local function set_highlights()
   local reference = {
     bg = "#d3d5b8",
