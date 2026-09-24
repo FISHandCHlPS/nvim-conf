@@ -27,6 +27,7 @@ return {
 
       diff = {
         layout = "side-by-side",
+        original_position = "right",
       },
 
       explorer = {
