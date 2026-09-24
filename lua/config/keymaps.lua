@@ -41,9 +41,6 @@ vim.keymap.set("n", "<S-Tab>", "<<", { desc = "Unindent line" })
 vim.keymap.set("x", "<Tab>", ">gv", { desc = "Indent selection" })
 vim.keymap.set("x", "<S-Tab>", "<gv", { desc = "Unindent selection" })
 
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true, desc = "scroll up page" })
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true, desc = "scroll down page" })
-
 -- Delete / change without overwriting registers
 vim.keymap.set({ "n", "x" }, "d", '"_d')
 vim.keymap.set({ "n", "x" }, "D", '"_D')
