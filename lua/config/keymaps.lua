@@ -2,7 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- Insert mode: jj -> Esc
+-- Insert mode: jk  -> Esc
 vim.keymap.set("i", "jk", "<Esc>", {
   noremap = true,
   silent = true,
@@ -12,9 +12,6 @@ vim.keymap.set("i", "jk", "<Esc>", {
 -- shift + h/j/k/l で高速化
 vim.keymap.set("n", "J", "6j", { desc = "Down 6 lines" })
 vim.keymap.set("n", "K", "6k", { desc = "Up 6 lines" })
--- spiderに変更
--- vim.keymap.set("n", "H", "b", { desc = "Previous word" })
--- vim.keymap.set("n", "L", "w", { desc = "Next word" })
 
 -- ;でコマンド
 vim.keymap.set("n", ";", ":", { desc = "Enter command-line" })
