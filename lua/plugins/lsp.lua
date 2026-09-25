@@ -9,11 +9,12 @@ return {
             { "gh", vim.lsp.buf.hover, desc = "Hover" },
           },
         },
+
         pyright = {
           enabled = false,
         },
+
         ty = {
-          mason = false,
           settings = {
             ty = {
               inlayHints = {
@@ -23,9 +24,6 @@ return {
             },
           },
         },
-        -- pyrefly = {
-        --   mason = false,
-        -- },
       },
     },
   },
