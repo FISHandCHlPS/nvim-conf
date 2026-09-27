@@ -17,6 +17,19 @@ return {
         ty = {
           settings = {
             ty = {
+              diagnosticMode = "off",
+              showSyntaxErrors = false,
+              inlayHints = {
+                variableTypes = false,
+                callArgumentNames = false,
+              },
+            },
+          },
+        },
+        pyrefly = {
+          mason = false,
+          settings = {
+            pyrefly = {
               inlayHints = {
                 variableTypes = false,
                 callArgumentNames = true,
