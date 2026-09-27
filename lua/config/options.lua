@@ -13,6 +13,8 @@ vim.opt.foldcolumn = "0"
 
 -- 折り返して表示
 vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
 
 -- クリップボードを日本語入力対応
 vim.g.clipboard = {
