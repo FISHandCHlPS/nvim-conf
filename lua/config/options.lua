@@ -3,12 +3,12 @@
 -- Add any additional options here
 
 -- スクロール開始位置の開始位置を設定
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 15
+-- vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 10
 
 -- 行番号を非表示
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.number = false
+-- vim.opt.relativenumber = true
 vim.opt.foldcolumn = "0"
 
 -- 折り返して表示
