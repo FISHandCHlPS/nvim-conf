@@ -6,6 +6,33 @@ return {
     "MunifTanjim/nui.nvim",
   },
   event = "VeryLazy",
+
+  init = function()
+    local function set_review_highlights()
+      vim.api.nvim_set_hl(0, "ReviewNoteLine", {
+        link = "CursorLine",
+      })
+
+      vim.api.nvim_set_hl(0, "ReviewSuggestionLine", {
+        link = "DiffAdd",
+      })
+
+      vim.api.nvim_set_hl(0, "ReviewIssueLine", {
+        link = "DiffChange",
+      })
+
+      vim.api.nvim_set_hl(0, "ReviewPraiseLine", {
+        link = "DiffAdd",
+      })
+    end
+
+    set_review_highlights()
+
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      callback = set_review_highlights,
+    })
+  end,
+
   keys = {
     { "<leader>rr", "<cmd>Review<cr>", desc = "Review working tree" },
     { "<leader>rc", "<cmd>Review commits<cr>", desc = "Review commits" },
