@@ -13,6 +13,17 @@ vim.keymap.set("i", "jk", "<Esc>", {
 vim.keymap.set("n", "J", "6j", { desc = "Down 6 lines" })
 vim.keymap.set("n", "K", "6k", { desc = "Up 6 lines" })
 
+-- C-d / C-u で半ページスクロール
+vim.keymap.set("n", "<C-d>", function()
+  local n = math.floor(vim.api.nvim_win_get_height(0) / 2)
+  return n .. "<C-e>"
+end, { expr = true })
+
+vim.keymap.set("n", "<C-u>", function()
+  local n = math.floor(vim.api.nvim_win_get_height(0) / 2)
+  return n .. "<C-y>"
+end, { expr = true })
+
 -- ;でコマンド
 vim.keymap.set("n", ";", ":", { desc = "Enter command-line" })
 

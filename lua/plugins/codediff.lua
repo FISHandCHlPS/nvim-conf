@@ -19,14 +19,14 @@ return {
     opts = {
       keymaps = {
         view = {
-          toggle_explorer = "<Tab>",
+          toggle_explorer = "f",
           next_hunk = ">",
           prev_hunk = "<",
         },
       },
 
       diff = {
-        layout = "side-by-side",
+        layout = "inline",
         original_position = "right",
       },
 
