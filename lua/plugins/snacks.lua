@@ -37,6 +37,17 @@ return {
             },
           },
         },
+        lsp_workspace_symbols = {
+          transform = function(item)
+            local path = (item.file or ""):gsub("\\", "/")
+
+            if path:match("^%.venv/") or path:match("/%.venv/") then
+              return false
+            end
+
+            return item
+          end,
+        },
       },
 
       layout = {
