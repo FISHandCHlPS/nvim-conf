@@ -9,7 +9,7 @@ return {
     },
 
     picker = {
-      -- tabでウィンドウを切り替え
+      -- Ctrl+h/lでウィンドウを切り替え
       win = {
         input = {
           keys = {
@@ -48,18 +48,6 @@ return {
             return item
           end,
         },
-      },
-
-      layout = {
-        preset = function()
-          local width = vim.api.nvim_win_get_width(0)
-
-          if width >= 110 then
-            return "default"
-          end
-
-          return "vertical"
-        end,
       },
 
       layouts = {

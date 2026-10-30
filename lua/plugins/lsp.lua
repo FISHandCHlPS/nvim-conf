@@ -14,12 +14,18 @@ return {
           enabled = false,
         },
 
+        ty = {
+          enabled = false,
+        },
+
         pyrefly = {
           settings = {
-            pyrefly = {
-              inlayHints = {
-                variableTypes = false,
-                callArgumentNames = true,
+            python = {
+              analysis = {
+                inlayHints = {
+                  variableTypes = false,
+                  functionReturnTypes = true,
+                },
               },
             },
           },
