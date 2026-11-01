@@ -42,10 +42,7 @@ vim.keymap.set({ "n", "t" }, "<leader>@", function()
 end, { desc = "Terminal (Root Dir)" })
 
 -- tabとshift+tabでインデント
--- Normal mode: current line
-vim.keymap.set("n", "<Tab>", ">>", { desc = "Indent line" })
-vim.keymap.set("n", "<S-Tab>", "<<", { desc = "Unindent line" })
--- Visual mode: selection
+-- review.nvimとキーが衝突するためVisual modeのみ
 vim.keymap.set("x", "<Tab>", ">gv", { desc = "Indent selection" })
 vim.keymap.set("x", "<S-Tab>", "<gv", { desc = "Unindent selection" })
 
