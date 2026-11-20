@@ -9,6 +9,14 @@ vim.keymap.set("i", "jk", "<Esc>", {
   desc = "Exit insert mode",
 })
 
+-- accelerated-jk: j/k長押しで加速 (カウントなしは折り返し行単位のgj/gk、カウント付きは通常のj/k)
+vim.keymap.set("n", "j", function()
+  return vim.v.count == 0 and "<Plug>(accelerated_jk_gj)" or "j"
+end, { expr = true, remap = true, silent = true, desc = "Down" })
+vim.keymap.set("n", "k", function()
+  return vim.v.count == 0 and "<Plug>(accelerated_jk_gk)" or "k"
+end, { expr = true, remap = true, silent = true, desc = "Up" })
+
 -- shift + h/j/k/l で高速化
 vim.keymap.set("n", "J", "6j", { desc = "Down 6 lines" })
 vim.keymap.set("n", "K", "6k", { desc = "Up 6 lines" })
