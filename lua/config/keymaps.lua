@@ -49,6 +49,29 @@ vim.keymap.set({ "n", "t" }, "<leader>@", function()
   Snacks.terminal.focus(nil, { cwd = LazyVim.root() })
 end, { desc = "Terminal (Root Dir)" })
 
+-- [x / ]x を <x / >x でも使えるようにする (元の [ ] 版も残す)
+-- remap で既存の [x / ]x を呼ぶので、gitsigns や treesitter のバッファローカルなキーにも効く
+-- ビジュアル/オペレータ待ちモードは < > (インデント) が待たされるため normal のみ
+local bracket_keys = {
+  { "B", "Move Buffer" },
+  { "d", "Diagnostic" },
+  { "e", "Error" },
+  { "w", "Warning" },
+  { "h", "Hunk" },
+  { "f", "Function Start" },
+  { "c", "Class Start" },
+  { "a", "Parameter Start" },
+  { "q", "Trouble/Quickfix Item" },
+  { "t", "Todo Comment" },
+  { "i", "Scope Edge" },
+  { "<Space>", "Add Empty Line Above", "Add Empty Line Below" },
+}
+for _, k in ipairs(bracket_keys) do
+  local key, prev_desc, next_desc = k[1], k[3] and k[2] or "Prev " .. k[2], k[3] or "Next " .. k[2]
+  vim.keymap.set("n", "<lt>" .. key, "[" .. key, { remap = true, desc = prev_desc })
+  vim.keymap.set("n", ">" .. key, "]" .. key, { remap = true, desc = next_desc })
+end
+
 -- tabとshift+tabでインデント
 -- review.nvimとキーが衝突するためVisual modeのみ
 vim.keymap.set("x", "<Tab>", ">gv", { desc = "Indent selection" })

@@ -20,8 +20,8 @@ return {
       keymaps = {
         view = {
           toggle_explorer = "f",
-          next_hunk = ">",
-          prev_hunk = "<",
+          next_hunk = ">h",
+          prev_hunk = "<h",
         },
       },
 
