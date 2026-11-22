@@ -16,6 +16,9 @@ vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 
+-- 日本語（マルチバイト文字）の間でも gq / textwidth で改行できるようにする
+vim.opt.formatoptions:append("mM")
+
 -- クリップボードを日本語入力対応
 vim.g.clipboard = {
   name = "OSC 52",
